@@ -4,9 +4,9 @@ import BaseScreen from "../components/BaseScreen";
 import BaseButton from "../components/BaseButton";
 import DeviceListItem from "../components/DeviceListItem";
 import { Peripheral } from "react-native-ble-manager";
-import { DevicesScreenProps } from "../types";
 import Content from "../components/Content";
 import useBleSearch from "../hooks/useBleSearch";
+import { DevicesScreenProps } from "../types";
 import { Colors } from "../constants";
 
 
@@ -14,6 +14,9 @@ const DevicesScreen = ({ route, navigation }: DevicesScreenProps) => {
     const [selectedId, setSelectedId] = useState<string>();
 
     const handleSelect = (item: Peripheral): void => {
+        console.log(`item: ${item} : id: ${item.id}, 
+        name: ${item.name},
+        rssi: ${item.rssi}`)
         setSelectedId(item.id)
     }
     const {
@@ -42,6 +45,7 @@ const DevicesScreen = ({ route, navigation }: DevicesScreenProps) => {
                     <FlatList
                         scrollEnabled={true}
                         data={discoveredDevices}
+                        key={selectedId}
                         renderItem={renderItem}
                         keyExtractor={item => item.id}
                         style={styles.flatListStyle}

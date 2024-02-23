@@ -4,7 +4,7 @@ import {
 } from "react-native";
 import { Peripheral } from "react-native-ble-manager";
 import { Colors } from "../constants";
-import React, { memo } from "react";
+import React from "react";
 
 
 type DeviceListItemProps = {
@@ -19,7 +19,6 @@ type DeviceListItemProps = {
 const DeviceListItem = ({ onPress, item, selected }: DeviceListItemProps) => {
     return (
         <Pressable
-            hitSlop={50}
             onPress={() => onPress(item)}
             style={
                 [styles.devicePressable, selected && styles.selectedItem]
@@ -47,7 +46,9 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.Background,
         borderBottomWidth: 1,
         padding: 8,
-        alignItems: 'stretch',
+        alignItems: 'baseline',
+        justifyContent: 'center',
+        height: 60
     },
     selectedItem: {
         fontFamily: 'Roboto',
