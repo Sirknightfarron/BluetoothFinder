@@ -8,12 +8,13 @@ import DevicesScreen from './src/screens/DevicesScreen';
 
 const Stack = createNativeStackNavigator();
 
+
 const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName='Landing'>
-        <Stack.Screen name='BluetoothFinder' component={LandingScreen} />
-        <Stack.Screen name='Devices' component={DevicesScreen} />
+        <Stack.Screen name='Landing' component={LandingScreen} options={{title: 'BluetoothFinder'}}/>
+        <Stack.Screen name='Devices' component={DevicesScreen} options={{title: 'Geräte'}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
