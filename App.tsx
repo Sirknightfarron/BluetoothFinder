@@ -1,4 +1,5 @@
-import { NavigationContainer } from '@react-navigation/native';
+import { useColorScheme } from 'react-native';
+import { NavigationContainer, DarkTheme, DefaultTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 // import screens
@@ -10,12 +11,8 @@ const Stack = createNativeStackNavigator();
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName='Landing'
-        screenOptions={{
-          headerShown: false,
-        }}>
-        <Stack.Screen name='Landing' component={LandingScreen} />
+      <Stack.Navigator initialRouteName='Landing'>
+        <Stack.Screen name='BluetoothFinder' component={LandingScreen} />
         <Stack.Screen name='Devices' component={DevicesScreen} />
       </Stack.Navigator>
     </NavigationContainer>

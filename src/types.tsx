@@ -1,8 +1,16 @@
 import type { RouteProp, NavigationProp } from '@react-navigation/native';
+import { Peripheral } from 'react-native-ble-manager/dist/esm/types';
 
 export type RootStackParamList = {
-    Landing: undefined;
+    Landing: {
+        route: LandingScreenRouteProp;
+        navigation: LandingScreenNavigationProp
+    };
     Devices: undefined;
+}
+
+export type DeviceItemProp = {
+    item: Peripheral;
 }
 
 // define navigation properties
@@ -15,8 +23,9 @@ type DevicesScreenRouteProp = RouteProp<RootStackParamList, 'Devices'>;
 
 // the combined screen properties
 export type LandingScreenProps = {
-    route: LandingScreenRouteProp,
-    navigation: LandingScreenNavigationProp
+    route: LandingScreenRouteProp;
+    navigation: LandingScreenNavigationProp;
+    style?: {};
 }
 
 export type DevicesScreenProps = {

@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { StyleSheet, View } from "react-native";
+import { Colors } from "../constants";
 
 type ContentProps = {
     children: ReactNode;
@@ -8,11 +9,7 @@ type ContentProps = {
 
 const Content = ({ children, style }: ContentProps) => {
     return (
-        <View style={
-            style === undefined ?
-                styles.baseContainer :
-                style
-        }>
+        <View style={style === undefined ? styles.baseContainer : style}>
             { children }
         </View>
     );
@@ -21,7 +18,11 @@ const Content = ({ children, style }: ContentProps) => {
 const styles = StyleSheet.create({
     baseContainer: {
         flex: 1,
-        padding: 5
+        flexDirection: 'column',
+        padding: 10,
+        width: '100%',
+        justifyContent: 'space-around',
+        color: Colors.Grey,
     }
 })
 
