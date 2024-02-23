@@ -1,18 +1,20 @@
 import React from "react";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleProp, StyleSheet, Text, View } from "react-native";
+import { Colors } from "../constants";
 
 type BaseButtonProps = {
-    onPress: () => void;
+    onPress: (item: any) => void;
     buttonText: string;
-    style?: any;
+    style?: {};
     hitSlop: number;
 }
 
-// cstyle: custom style - might refactor later
 const BaseButton = ({ onPress, buttonText, style, hitSlop }: BaseButtonProps) => {
     return (
         <View style={style === undefined ? styles.buttonContainer : style}>
-            <Pressable onPress={onPress} hitSlop={hitSlop} >
+            <Pressable
+                onPress={onPress}
+                hitSlop={hitSlop} >
                 <Text style={styles.buttonTitle}>{buttonText}</Text>
             </Pressable>
         </View>
@@ -22,15 +24,19 @@ const BaseButton = ({ onPress, buttonText, style, hitSlop }: BaseButtonProps) =>
 const styles = StyleSheet.create({
     buttonContainer: {
         borderWidth: 2,
-        padding: 5,
+        borderColor: Colors.Grey,
+        backgroundColor: Colors.Yellow,
+        height: 50,
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     buttonTitle: {
-        fontFamily: 'Barlow',
+        justifyContent: 'space-around',
+        fontFamily: 'Roboto',
         fontWeight: 'bold',
-    },
-    buttonStyle: {
-        borderWidth: 2,
-        padding: 5,
+        fontSize: 20,
+        color: Colors.Grey,
+        paddingHorizontal: '40%'
     },
 })
 
