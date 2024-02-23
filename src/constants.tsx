@@ -1,5 +1,5 @@
 // color constants
-export const colors = {
+export const Colors = {
     Grey: "#656a76",
     Yellow: "#ffdc00",
     Active: "#989899",
